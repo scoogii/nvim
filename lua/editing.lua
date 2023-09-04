@@ -12,10 +12,10 @@ o.shiftwidth = 4
 o.shiftround = true
 
 -- For 2 tab spaces
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "html, css" },
-  command = "setlocal shiftwidth=2 tabstop=2"
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "html, css" },
+--   command = "setlocal shiftwidth=2 tabstop=2"
+-- })
 
 -- Remove trailing whitespaces on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -37,6 +37,7 @@ vim.opt.listchars = {
 }
 
 -- Relative Number Lines
+w.number = true
 w.relativenumber = true
 w.numberwidth = 5
 
