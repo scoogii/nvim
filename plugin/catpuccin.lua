@@ -27,8 +27,8 @@ require("catppuccin").setup({
     },
     color_overrides = {
         macchiato = {
-            base = "#202233",
-            mantle = "#1c1d29"
+            base = "#161b26",
+            mantle = "#161d2b",
         },
     },
     custom_highlights = {},
@@ -43,4 +43,4 @@ require("catppuccin").setup({
     },
 })
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme("catppuccin")
