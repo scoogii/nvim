@@ -12,8 +12,10 @@ o.shiftwidth = 4
 o.shiftround = true
 
 -- For 2 tab spaces
-vim.cmd("autocmd FileType javascript setlocal shiftwidth=2 tabstop=2")
-vim.cmd("autocmd FileType html setlocal shiftwidth=2 tabstop=2")
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "html, css" },
+  command = "setlocal shiftwidth=2 tabstop=2"
+})
 
 -- Remove trailing whitespaces on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {

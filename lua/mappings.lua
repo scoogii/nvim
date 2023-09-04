@@ -24,3 +24,8 @@ map('i', '<S-Tab>', '<C-d>')
 -- nvim tree
 map('n', '<leader>5', '<CMD>NvimTreeToggle<CR>')
 map('n', '<leader>6', '<CMD>NvimTreeFindFileToggle<CR>')
+
+-- bufferline
+map('n', 'b]', '<CMD>BufferLineCycleNext<CR>')
+map('n', 'b[', '<CMD>BufferLineCyclePrev<CR>')
+map('n', 'bd', '<CMD>bdelete<CR>')

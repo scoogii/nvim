@@ -66,6 +66,17 @@ require('packer').startup(function(use)
     -- bufferline
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 
+    -- nvim comment (nerd commenter)
+    use 'terrortylor/nvim-comment'
+
+    -- surround
+    use({
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup({}) -- default config
+        end
+    })
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
