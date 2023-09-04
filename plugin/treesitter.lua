@@ -21,10 +21,19 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-    colors = { "#c75c4c", "#f08e32", "#edc840", "#8cdb42", "#4e8fcf", "#5e44d4", "#b741cc"},
-  }
+  -- rainbow = {
+  --   enable = true,
+  --   -- disable = { "jsx" },
+  --   -- extended_mode = true,
+  --   max_file_lines = nil,
+  --   colors = { "#c75c4c", "#f08e32", "#edc840", "#8cdb42", "#4e8fcf", "#5e44d4", "#b741cc"},
+  -- }
 }
+
+require('nvim-ts-autotag').setup({
+    autotag = {
+        enable = true,
+        enable_close = true,
+        enable_close_on_slash = true,
+    }
+})

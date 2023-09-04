@@ -67,6 +67,9 @@ require('packer').startup(function(use)
     -- Rainbow parentheses
     use 'p00f/nvim-ts-rainbow'
 
+    -- Auto tags
+    use 'windwp/nvim-ts-autotag'
+
     use "norcalli/nvim-colorizer.lua"
 
     -- quickscope
