@@ -1,5 +1,4 @@
 require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "css", "cpp", "python", "javascript", "html", "css" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -21,4 +20,11 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+    colors = { "#c75c4c", "#f08e32", "#edc840", "#8cdb42", "#4e8fcf", "#5e44d4", "#b741cc"},
+  }
 }

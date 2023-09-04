@@ -106,3 +106,9 @@ require("lspconfig").tsserver.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
+
+-- vimls
+require("lspconfig").vimls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+}

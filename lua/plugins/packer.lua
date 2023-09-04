@@ -10,7 +10,6 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
-
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
@@ -27,6 +26,12 @@ require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    -- autopairs
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+
     use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
     -- LSP
@@ -39,7 +44,12 @@ require('packer').startup(function(use)
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-path",
         "L3MON4D3/LuaSnip",
-        "onsails/lspkind.nvim"
+        "onsails/lspkind.nvim",
+    }
+
+    -- Linting + Static Type Checking
+    use { "jose-elias-alvarez/null-ls.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
     }
 
     -- Lualine
@@ -57,11 +67,7 @@ require('packer').startup(function(use)
     -- Rainbow parentheses
     use 'p00f/nvim-ts-rainbow'
 
-    -- autoclose pairs
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
+    use "norcalli/nvim-colorizer.lua"
 
     -- quickscope
     use "unblevable/quick-scope"
