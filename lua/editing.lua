@@ -17,6 +17,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
+-- Transparent LSP float background
+vim.cmd([[highlight DiagnosticVirtualTextError guibg=none]])
+vim.cmd([[highlight DiagnosticVirtualTextWarn guibg=none]])
+vim.cmd([[highlight DiagnosticVirtualTextInfo guibg=none]])
+vim.cmd([[highlight DiagnosticVirtualTextHint guibg=none]])
+
 -- Text Width
 o.textwidth = 100
 
