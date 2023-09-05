@@ -19,19 +19,8 @@ require('packer').startup(function(use)
     use { "catppuccin/nvim", as = "catppuccin" }
     use 'nvim-tree/nvim-web-devicons'
 
-    -- <leader>ff / <C-p>
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.2',
-        -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    -- autopairs
-    use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
-    }
-
+    use { 'nvim-telescope/telescope.nvim', tag = '0.1.2', requires = { {'nvim-lua/plenary.nvim'} } } -- <leader>ff / <C-p>
+    use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end } -- autopairs
     use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
     -- LSP
@@ -47,47 +36,18 @@ require('packer').startup(function(use)
         "onsails/lspkind.nvim",
     }
 
-    -- Linting + Static Type Checking
-    use { "jose-elias-alvarez/null-ls.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-    }
-
-    -- Lualine
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-
-    -- nvim tree
-    use 'nvim-tree/nvim-tree.lua'
-
-    -- Git blame
-    use 'f-person/git-blame.nvim'
-
-    -- Rainbow parentheses
-    use 'p00f/nvim-ts-rainbow'
-
-    -- Auto tags
-    use 'windwp/nvim-ts-autotag'
-
-    use "norcalli/nvim-colorizer.lua"
-
-    -- quickscope
-    use "unblevable/quick-scope"
-
-    -- bufferline
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-
-    -- nvim comment (nerd commenter)
-    use 'terrortylor/nvim-comment'
-
-    -- surround
-    use({
-        "kylechui/nvim-surround",
-        config = function()
-            require("nvim-surround").setup({}) -- default config
-        end
-    })
+    use { "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" }, } -- Linting/Static Type Checking
+    use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true } } -- Lualine
+    use 'nvim-tree/nvim-tree.lua' -- nvim tree
+    use 'f-person/git-blame.nvim' -- Git blame
+    use 'p00f/nvim-ts-rainbow' -- Rainbow parentheses
+    use 'windwp/nvim-ts-autotag' -- Auto tags
+    use "norcalli/nvim-colorizer.lua" -- hex colours
+    use "unblevable/quick-scope" -- quickscope
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'} -- bufferline
+    use 'terrortylor/nvim-comment' -- nerdcommenter
+    use({ "kylechui/nvim-surround", config = function() require("nvim-surround").setup({}) end }) -- surround
+    use("lewis6991/gitsigns.nvim")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

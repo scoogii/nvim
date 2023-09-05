@@ -16,7 +16,7 @@ require("catppuccin").setup({
         conditionals = { "italic" },
         loops = {},
         functions = {},
-        keywords = { "italic" },
+        keywords = {},
         strings = { "italic "},
         variables = {},
         numbers = {},
@@ -27,8 +27,8 @@ require("catppuccin").setup({
     },
     color_overrides = {
         macchiato = {
-            base = "#161b26",
-            mantle = "#161d2b",
+            base = "#1b212e",
+            mantle = "#161d26",
         },
     },
     custom_highlights = {},
