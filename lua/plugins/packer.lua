@@ -47,7 +47,7 @@ require('packer').startup(function(use)
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'} -- bufferline
     use 'terrortylor/nvim-comment' -- nerdcommenter
     use({ "kylechui/nvim-surround", config = function() require("nvim-surround").setup({}) end }) -- surround
-    use("lewis6991/gitsigns.nvim")
+    use("lewis6991/gitsigns.nvim") -- gitsigns
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
