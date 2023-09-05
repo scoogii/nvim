@@ -48,6 +48,7 @@ require('packer').startup(function(use)
     use 'terrortylor/nvim-comment' -- nerdcommenter
     use({ "kylechui/nvim-surround", config = function() require("nvim-surround").setup({}) end }) -- surround
     use("lewis6991/gitsigns.nvim") -- gitsigns
+    use({"kdheepak/lazygit.nvim", requires = { "nvim-lua/plenary.nvim", },})
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
