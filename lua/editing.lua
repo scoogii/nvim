@@ -4,18 +4,12 @@ local w = vim.wo
 
 -- Tabs/Indentation
 o.autoindent = true
-o.expandtab = true
 o.smarttab = true
 o.tabstop = 4
+o.expandtab = true
 o.softtabstop = 4
 o.shiftwidth = 4
 o.shiftround = true
-
--- For 2 tab spaces
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---   pattern = { "html, css" },
---   command = "setlocal shiftwidth=2 tabstop=2"
--- })
 
 -- Remove trailing whitespaces on save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
