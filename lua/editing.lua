@@ -17,11 +17,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
--- Transparent LSP float background
-vim.cmd([[highlight DiagnosticVirtualTextError guibg=none]])
-vim.cmd([[highlight DiagnosticVirtualTextWarn guibg=none]])
-vim.cmd([[highlight DiagnosticVirtualTextInfo guibg=none]])
-vim.cmd([[highlight DiagnosticVirtualTextHint guibg=none]])
+-- Remove Virtual Text bg
+vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextError guibg=NONE ]]
+vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextWarn guibg=NONE ]]
+vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextInfo guibg=NONE ]]
+vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextHint guibg=NONE ]]
 
 -- Text Width
 o.textwidth = 100
