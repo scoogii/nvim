@@ -1,8 +1,8 @@
 -- init
-require('editing')
-require('mappings')
+require('core.editing')
+require('core.mappings')
 require('plugins.plugins')
-require('autocmd')
-require('lsp_config')
+require('core.autocmd')
+require('core.lsp_config')
 
 vim.cmd.colorscheme"Catppuccin"

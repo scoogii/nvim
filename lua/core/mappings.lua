@@ -4,7 +4,7 @@ local function map(m, k, v)
 end
 
 -- Leader
-vim.g.mapleader = ","
+-- vim.g.mapleader = ","
 
 -- Easy save
 map("n", "<C-s>", "<CMD>w<CR>")
