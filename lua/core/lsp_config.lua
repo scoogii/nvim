@@ -1,9 +1,39 @@
 -- Autocomplete
 local cmp = require("cmp")
+
+local luasnip = require("luasnip")
+local lsp_symbols = {
+    Text = "   (Text) ",
+    Method = "   (Method)",
+    Function = "   (Function)",
+    Constructor = "   (Constructor)",
+    Field = " ﴲ  (Field)",
+    Variable = "[] (Variable)",
+    Class = "   (Class)",
+    Interface = " ﰮ  (Interface)",
+    Module = "   (Module)",
+    Property = " 襁 (Property)",
+    Unit = "   (Unit)",
+    Value = "   (Value)",
+    Enum = " 練 (Enum)",
+    Keyword = "   (Keyword)",
+    Snippet = "   (Snippet)",
+    Color = "   (Color)",
+    File = "   (File)",
+    Reference = "   (Reference)",
+    Folder = "   (Folder)",
+    EnumMember = "   (EnumMember)",
+    Constant = " ﲀ  (Constant)",
+    Struct = " ﳤ  (Struct)",
+    Event = "   (Event)",
+    Operator = "   (Operator)",
+    TypeParameter = "   (TypeParameter)",
+}
+
 cmp.setup({
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end,
     },
     mapping = {
@@ -17,12 +47,15 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     formatting = {
-        format = function(_, vim_item)
-            vim.cmd("packadd lspkind-nvim")
-            vim_item.kind = require("lspkind").presets.codicons[vim_item.kind]
-            .. "  "
-            .. vim_item.kind
-            return vim_item
+        format = function(entry, item)
+            item.kind = lsp_symbols[item.kind]
+            item.menu = ({
+                buffer = "[Buffer]",
+                nvim_lsp = "[LSP]",
+                luasnip = "[Snippet]",
+            })[entry.source.name]
+
+            return item
         end,
     },
     sources = {
@@ -109,6 +142,12 @@ require("lspconfig").tsserver.setup {
 
 -- vimls
 require("lspconfig").vimls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+
+-- JSON
+require("lspconfig").jsonls.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
