@@ -32,3 +32,9 @@ map('n', 'bd', '<CMD>bdelete<CR>')
 
 -- lazygit
 map('n', '<leader>lg', '<CMD>LazyGit<CR>')
+
+-- cmdline
+map('n', '<CR>', '<cmd>FineCmdline<CR>')
+
+-- Trouble
+map('n', '<leader>t', '<cmd>TroubleToggle<CR>')
