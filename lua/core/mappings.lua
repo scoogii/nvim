@@ -3,9 +3,6 @@ local function map(m, k, v)
     vim.keymap.set(m, k, v, { silent = true })
 end
 
--- Leader
--- vim.g.mapleader = ","
-
 -- Easy save
 map("n", "<C-s>", "<CMD>w<CR>")
 
