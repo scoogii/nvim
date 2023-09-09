@@ -23,7 +23,19 @@ return {
       },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {'branch', 'diff',
+          {
+            'diagnostics',
+            sources = {"nvim_lsp"},
+            sections = { 'error', 'warn', 'info', 'hint' },
+            diagnostics_color = {
+            },
+            symbols = {error = ' ', warn = ' ', info = ' '},
+            colored = true,           -- Displays diagnostics status in color if set to true.
+            update_in_insert = false, -- Update diagnostics in insert mode.
+            always_visible = false,   -- Show diagnostics even if there are none.
+          }
+        },
         lualine_c = {'filename'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
