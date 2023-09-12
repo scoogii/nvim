@@ -151,3 +151,9 @@ require("lspconfig").jsonls.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
+
+-- Bash
+require("lspconfig").bashls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+}

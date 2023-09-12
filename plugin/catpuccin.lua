@@ -27,8 +27,8 @@ require("catppuccin").setup({
     },
     color_overrides = {
         macchiato = {
-            base = "#191f2b",
-            mantle = "#161d26",
+            base = "#171e2e",
+            mantle = "#1e2433",
         },
     },
     custom_highlights = {},
