@@ -28,5 +28,6 @@ return {
     'terrortylor/nvim-comment', -- nerdcommenter
     "kylechui/nvim-surround", -- surround
     "lewis6991/gitsigns.nvim", -- gitsigns
-    {"kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim", },}
+    {"kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim", }},
+    {'iamcco/markdown-preview.nvim'},
 }
