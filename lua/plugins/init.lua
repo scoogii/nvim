@@ -29,5 +29,11 @@ return {
     "kylechui/nvim-surround", -- surround
     "lewis6991/gitsigns.nvim", -- gitsigns
     {"kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim", }},
-    {'iamcco/markdown-preview.nvim'},
+    {
+      "iamcco/markdown-preview.nvim",
+      lazy = false,
+      config = function()
+        vim.fn["mkdp#util#install"]()
+      end,
+    },
 }
