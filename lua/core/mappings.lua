@@ -35,3 +35,6 @@ map('n', '<CR>', '<cmd>FineCmdline<CR>')
 
 -- Trouble
 map('n', '<leader>t', '<cmd>TroubleToggle<CR>')
+
+-- Markdown Preview
+map('n', '<leader>m', '<cmd>MarkdownPreview<CR>')
