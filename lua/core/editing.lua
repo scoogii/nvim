@@ -23,6 +23,12 @@ vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextWarn
 vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextInfo guibg=NONE ]]
 vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextHint guibg=NONE ]]
 
+-- Diagnostic Sign Icons
+vim.fn.sign_define("DiagnosticSignError", { text=' ', texthl = "DiagnosticSignError", numhl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarn", { text=' ', texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInfo", { text='󰋽 ', texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignHint", { text=' ', texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
+
 -- Text Width
 o.textwidth = 100
 
