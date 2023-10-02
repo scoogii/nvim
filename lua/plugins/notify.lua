@@ -3,10 +3,9 @@ return {
   "rcarriga/nvim-notify",
   config = function()
     require("notify").setup({
-      render = "default",
       timeout = 500,
-      fps = 60,
-      background_colour = "Normal",
+      max_width = 50,
+      max_height = 50,
     })
     vim.notify = require("notify")
   end
