@@ -10,9 +10,7 @@ return {
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = {},
-          winbar = {},
-        },
-        ignore_focus = {},
+          winbar = {}, }, ignore_focus = {},
         always_divide_middle = true,
         globalstatus = false,
         refresh = {
@@ -37,7 +35,15 @@ return {
           }
         },
         lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {
+          {
+            require("noice").api.status.command.get,
+            cond = require("noice").api.status.command.has,
+            color = { fg = "#e277e6" },
+          },
+          'encoding'
+        },
+        -- lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
       },
