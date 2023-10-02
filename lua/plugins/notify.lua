@@ -4,8 +4,8 @@ return {
   config = function()
     require("notify").setup({
       timeout = 500,
-      max_width = 50,
-      max_height = 50,
+      max_width = 60,
+      max_height = 30,
     })
     vim.notify = require("notify")
   end
