@@ -35,3 +35,6 @@ map('n', '<leader>t', '<cmd>TroubleToggle<CR>')
 
 -- Markdown Preview
 map('n', '<leader>m', '<cmd>MarkdownPreview<CR>')
+
+-- Which Key
+map('n', '<leader>w', '<cmd>WhichKey<CR>')

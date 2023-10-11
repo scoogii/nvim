@@ -1,3 +1,12 @@
+local function show_macro_recording()
+    local recording_register = vim.fn.reg_recording()
+    if recording_register == "" then
+        return ""
+    else
+        return "Recording @" .. recording_register
+    end
+end
+
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
@@ -36,6 +45,11 @@ return {
         },
         lualine_c = {'filename'},
         lualine_x = {
+          {
+            "macro-recording",
+            fmt = show_macro_recording,
+            color = { fg = "#66d998" },
+          },
           {
             require("noice").api.status.command.get,
             cond = require("noice").api.status.command.has,
