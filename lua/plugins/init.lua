@@ -20,7 +20,6 @@ return {
     { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" }, }, -- Linting/Static Type Checking
     'nvim-tree/nvim-tree.lua', -- nvim tree
     'f-person/git-blame.nvim', -- Git blame
-    'p00f/nvim-ts-rainbow', -- Rainbow parentheses
     'windwp/nvim-ts-autotag', -- Auto tags
     "norcalli/nvim-colorizer.lua", -- hex colours
     "unblevable/quick-scope", -- quickscope
@@ -54,5 +53,6 @@ return {
       vim.o.timeoutlen = 300
     end
     },
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    { "HiPhish/rainbow-delimiters.nvim"},
 }
