@@ -54,4 +54,5 @@ return {
       vim.o.timeoutlen = 300
     end
     },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 }
