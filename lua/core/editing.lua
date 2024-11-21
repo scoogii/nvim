@@ -17,6 +17,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
+-- Remove auto comment on next line
+vim.cmd('autocmd BufEnter * set formatoptions-=cro')
+vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+
 -- Remove Virtual Text bg
 vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextError guibg=NONE ]]
 vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextWarn guibg=NONE ]]
