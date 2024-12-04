@@ -79,7 +79,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- LSP related
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = {"lua_ls", "clangd", "cssls", "eslint", "html", "pyright", "tsserver"}
+    ensure_installed = {"lua_ls", "clangd", "cssls", "eslint", "html", "pyright", "ts_ls"}
 })
 
 local on_attach = function(_, _)
@@ -135,7 +135,7 @@ require("lspconfig").pyright.setup {
 }
 
 -- ts
-require("lspconfig").tsserver.setup {
+require("lspconfig").ts_ls.setup {
     capabilities = capabilities,
     on_attach = on_attach
 }
