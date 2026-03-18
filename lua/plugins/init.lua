@@ -1,9 +1,30 @@
 return {
     -- Theme
-    { "catppuccin/nvim", name = "catppuccin" },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000,
+      config = function()
+        require("catppuccin").setup({
+          flavour = "macchiato",
+          transparent_background = false,
+          term_colors = true,
+          integrations = {
+            blink_cmp = true,
+            gitsigns = true,
+            indent_blankline = { enabled = true, colored_indent_levels = false },
+            mason = true,
+            noice = true,
+            notify = true,
+            nvimtree = true,
+            rainbow_delimiters = true,
+            telescope = { enabled = true },
+            treesitter = true,
+            which_key = true,
+          },
+        })
+      end
+    },
     'nvim-tree/nvim-web-devicons',
 
-    { 'nvim-telescope/telescope.nvim', version = '0.1.2', dependencies = { {'nvim-lua/plenary.nvim'} } }, -- <leader>ff / <C-p>
+    { 'nvim-telescope/telescope.nvim', version = '0.1.2', dependencies = { {'nvim-lua/plenary.nvim'} } },
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
     -- LSP
@@ -17,7 +38,23 @@ return {
     "L3MON4D3/LuaSnip",
     "onsails/lspkind.nvim",
 
-    { "jose-elias-alvarez/null-ls.nvim", dependencies = { "nvim-lua/plenary.nvim" }, }, -- Linting/Static Type Checking
+    {
+      "nvimtools/none-ls.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+        local null_ls = require("null-ls")
+        null_ls.setup({
+          sources = {
+            null_ls.builtins.diagnostics.sqlfluff.with({
+              extra_args = { "--dialect", "postgres" },
+            }),
+            null_ls.builtins.formatting.sqlfluff.with({
+              extra_args = { "--dialect", "postgres" },
+            }),
+          },
+        })
+      end,
+    }, -- Linting/Formatting
     'nvim-tree/nvim-tree.lua', -- nvim tree
     'f-person/git-blame.nvim', -- Git blame
     'windwp/nvim-ts-autotag', -- Auto tags
@@ -55,4 +92,25 @@ return {
     },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     { "HiPhish/rainbow-delimiters.nvim"},
+    {"saghen/blink.cmp"},
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
+    {"karb94/neoscroll.nvim"},
+    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+    {"Olical/conjure"},
+    {"eraserhd/parinfer-rust", build = "cargo build --release"},
+    {"Grazfather/sexp.nvim"},
+    { 'alexghergh/nvim-tmux-navigation', config = function()
+      require'nvim-tmux-navigation'.setup {
+        disable_when_zoomed = true,
+        keybindings = {
+            left = "<M-h>",
+            down = "<M-j>",
+            up = "<M-k>",
+            right = "<M-l>",
+            last_active = "<M-\\>",
+        }
+      }
+    end
+    },
+    {'stevearc/overseer.nvim' }
 }

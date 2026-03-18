@@ -25,13 +25,31 @@ require("catppuccin").setup({
         types = {},
         operators = {},
     },
-    color_overrides = {
-        macchiato = {
-            base = "#171e2e",
-            mantle = "#1e2433",
-        },
-    },
-    custom_highlights = {},
+    -- color_overrides = {
+    --     macchiato = {
+    --         base = "#191b2a",
+    --         mantle = "#181a2a",
+    --     },
+    -- },
+    color_overrides = {},
+    custom_highlights = function(colors)
+        return {
+            -- Telescope with visible rounded borders in macchiato
+            TelescopeNormal = { bg = colors.mantle },
+            TelescopeBorder = { bg = colors.mantle, fg = colors.mantle },
+            TelescopePromptNormal = { bg = colors.mantle },
+            TelescopePromptBorder = { bg = colors.mantle, fg = colors.mantle },
+            TelescopePromptTitle = { bg = colors.mauve, fg = colors.crust },
+            TelescopePromptPrefix = { bg = colors.mantle, fg = colors.mauve },
+            TelescopePreviewTitle = { bg = colors.teal, fg = colors.crust },
+            TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
+            TelescopeResultsTitle = { bg = colors.lavender, fg = colors.crust },
+            TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+            TelescopeSelection = { bg = colors.surface0, fg = colors.text },
+            TelescopeSelectionCaret = { bg = colors.surface0, fg = colors.mauve },
+            TelescopeMatching = { fg = colors.peach, bold = true },
+        }
+    end,
     integrations = {
         cmp = true,
         gitsigns = true,
@@ -39,6 +57,7 @@ require("catppuccin").setup({
         treesitter = true,
         notify = false,
         mini = false,
+        telescope = { enabled = true, style = "nvchad" },
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })

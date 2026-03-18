@@ -13,13 +13,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Leader
-vim.g.mapleader = ","
-
-require('core.editing')
-require('core.mappings')
-require("lazy").setup("plugins")
-require('core.autocmd')
-require('core.lsp_config')
+require('config.editing')
+require('config.mappings')
+require('core.lazy')
+require('core.lsp')
+require('config.autocmd')
 
 vim.cmd.colorscheme"Catppuccin"

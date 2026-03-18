@@ -1,10 +1,14 @@
 -- Editing options
+-- Leader
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
+
 local o = vim.o
 local w = vim.wo
 
 -- Tabs/Indentation
 o.autoindent = true
-o.smarttab = true
+o.smartindent = true
 o.tabstop = 4
 o.expandtab = true
 o.softtabstop = 4
@@ -28,10 +32,10 @@ vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextInfo
 vim.api.nvim_command[[ autocmd ColorScheme * highlight DiagnosticVirtualTextHint guibg=NONE ]]
 
 -- Diagnostic Sign Icons
-vim.fn.sign_define("DiagnosticSignError", { text=' ', texthl = "DiagnosticSignError", numhl = "DiagnosticSignError"})
-vim.fn.sign_define("DiagnosticSignWarn", { text=' ', texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn"})
-vim.fn.sign_define("DiagnosticSignInfo", { text=' ', texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo"})
-vim.fn.sign_define("DiagnosticSignHint", { text=' ', texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
+vim.fn.sign_define("DiagnosticSignError", { text=' ', texthl = "DiagnosticSignError", numhl = "DiagnosticSignError"})
+vim.fn.sign_define("DiagnosticSignWarn", { text=' ', texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn"})
+vim.fn.sign_define("DiagnosticSignInfo", { text=' ', texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo"})
+vim.fn.sign_define("DiagnosticSignHint", { text=' ', texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint"})
 
 -- Text Width
 o.textwidth = 100
@@ -63,3 +67,6 @@ o.mouse = "a"
 o.hlsearch = true
 o.ignorecase = true
 o.smartcase = true
+
+-- Right split preference
+vim.cmd('set spr')

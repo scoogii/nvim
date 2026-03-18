@@ -14,7 +14,7 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'auto',
+        theme = 'catppuccin',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {
@@ -48,12 +48,12 @@ return {
           {
             "macro-recording",
             fmt = show_macro_recording,
-            color = { fg = "#66d998" },
+            color = { fg = "#a6da95" },
           },
           {
-            require("noice").api.status.command.get,
-            cond = require("noice").api.status.command.has,
-            color = { fg = "#e277e6" },
+            function() return require("noice").api.status.command.get() end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+            color = { fg = "#c6a0f6" },
           },
           'encoding'
         },
