@@ -12,6 +12,7 @@ return {
   },
   settings = {
     python = {
+      pythonPath = vim.fn.getcwd() .. '/.venv/bin/python',
       analysis = {
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
