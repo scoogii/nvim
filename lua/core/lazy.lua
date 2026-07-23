@@ -38,3 +38,4 @@ require("lazy").setup({ import = "plugins" }, {
 })
 
 require("mason").setup()
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH

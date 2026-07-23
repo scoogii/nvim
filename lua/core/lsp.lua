@@ -4,9 +4,12 @@ vim.lsp.enable({
   "pyright",
   "vtsls",
   "cssls",
-  "clojure_lsp",
+  "gopls",
   "jsonls",
-  "sqls"
+  "sqls",
+  "sourcekit",
+  "jdtls",
+  "terraformls"
 })
 
 

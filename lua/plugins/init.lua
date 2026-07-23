@@ -20,12 +20,13 @@ return {
             which_key = true,
           },
         })
+        vim.cmd.colorscheme("catppuccin")
       end
     },
     'nvim-tree/nvim-web-devicons',
 
-    { 'nvim-telescope/telescope.nvim', version = '0.1.2', dependencies = { {'nvim-lua/plenary.nvim'} } },
-    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+
+    { 'nvim-treesitter/nvim-treesitter', branch = 'main', build = ':TSUpdate' },
 
     -- LSP
     "williamboman/mason.nvim",
@@ -51,6 +52,7 @@ return {
             null_ls.builtins.formatting.sqlfluff.with({
               extra_args = { "--dialect", "postgres" },
             }),
+            null_ls.builtins.formatting.black,
           },
         })
       end,
@@ -90,18 +92,15 @@ return {
       vim.o.timeoutlen = 300
     end
     },
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
     { "HiPhish/rainbow-delimiters.nvim"},
     {"saghen/blink.cmp"},
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
     {"karb94/neoscroll.nvim"},
     { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
-    {"Olical/conjure"},
-    {"eraserhd/parinfer-rust", build = "cargo build --release"},
-    {"Grazfather/sexp.nvim"},
     { 'alexghergh/nvim-tmux-navigation', config = function()
       require'nvim-tmux-navigation'.setup {
-        disable_when_zoomed = true,
+        disable_when_zoomed = true, -- defaults to false
         keybindings = {
             left = "<M-h>",
             down = "<M-j>",

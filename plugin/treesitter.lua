@@ -1,31 +1,22 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "css", "cpp", "python", "javascript", "html", "css", "json"},
+vim.treesitter.language.register('swift', 'swift')
 
-  sync_install = false,
-  auto_install = true,
-
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-
-  indent = {
-    enable = true,
-  },
-
-  -- rainbow = {
-  --   enable = true,
-  --   -- disable = { "jsx" },
-  --   -- extended_mode = true,
-  --   max_file_lines = nil,
-  --   colors = { "#c75c4c", "#f08e32", "#edc840", "#8cdb42", "#4e8fcf", "#5e44d4", "#b741cc"},
-  -- }
+local skip_ft = {
+  [""] = true, notify = true, noice = true, lazy = true, mason = true,
+  NvimTree = true, TelescopePrompt = true, quickfix = true, help = true,
+  checkhealth = true, lspinfo = true, man = true,
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    if skip_ft[ft] then return end
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
 
 require('nvim-ts-autotag').setup({
     autotag = {
         enable = true,
-        -- enable_close = true,
         enable_close_on_slash = true,
     }
 })
