@@ -38,7 +38,7 @@ return {
         -- Rounded border, centered title with an icon, and a key reminder footer
         pcall(vim.api.nvim_win_set_config, win, {
           border = "rounded",
-          title = { { "  Harpoon ", "HarpoonTitle" } },
+          title = { { " 󰀱 Harpoon ", "HarpoonTitle" } },
           title_pos = "center",
           footer = {
             { " ", "HarpoonFooter" },
